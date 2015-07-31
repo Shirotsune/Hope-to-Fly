@@ -12,7 +12,9 @@ import javax.swing.WindowConstants;
 public class Container implements Runnable {
 
     private JFrame frame;
-
+    RendingManager render;
+    EventHandler listener;
+    
     @Override
     public void run() {
         frame = new JFrame("Hope to Fly");
@@ -26,8 +28,13 @@ public class Container implements Runnable {
         frame.setVisible(true);
     }
 
+    public Container(RendingManager render, EventHandler listener)
+    {
+         this.listener = listener;
+    }
+    
     private void Create(java.awt.Container container) {
-
+        frame.addKeyListener(listener);
     }
 
     public JFrame getFrame() {
