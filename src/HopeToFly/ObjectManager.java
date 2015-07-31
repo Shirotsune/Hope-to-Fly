@@ -50,7 +50,8 @@ public class ObjectManager {
       for(int i = 0; i < 8; i++)
       {
           if(Wishes.get(i).ret_y() > 800 ){
-              Wishes.get(i).respawn(spawnheight);     
+              Wishes.get(i).respawn(spawnheight); 
+              spawnheight -=120;
           }
       }
         spawnheight++;
