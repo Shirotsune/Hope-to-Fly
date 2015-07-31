@@ -30,6 +30,8 @@ public class RendingManager extends JPanel {
     int background_y = -1760;
     int ground_y = 680;
     Movement motion;
+    int cursor_pos = 0;
+    boolean right = true;
 
     ClassLoader cl = getClass().getClassLoader();
     URL Background_imageURL = cl.getResource("HopeToFly/Assets/bg.jpg");
@@ -76,9 +78,26 @@ public class RendingManager extends JPanel {
             graphics.drawImage(Wish, Wishes.get(i).ret_x(), Wishes.get(i).ret_y(), this);
         }
         
-        graphics.drawImage(FoxUpR, 250, 500, this);
-        graphics.drawImage(FoxUpL, 400, 500, this);
+        if(Player.getX() < cursor_pos-100){
+            Player.addX(cursor_pos);
+            right = true;
+       
+        } else if(Player.getX() > cursor_pos-100){
+            Player.reduceX(cursor_pos);
+            right = false;
+        
+        }
+        if(right)
         graphics.drawImage(FoxUpR, Player.getX(), 300, this);
+        else
+        graphics.drawImage(FoxUpL, Player.getX(), 300, this);    
+       
+        //graphics.drawImage(FoxUpR, Player.getX(), 300, this);
+    }
+    
+    public void pass(int number){
+        this.cursor_pos = number;
+       // System.out.println(cursor_pos);
     }
 
 }

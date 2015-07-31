@@ -10,6 +10,8 @@ public class PlayerObject {
     
     int x;
     int y;
+    int redc = 0;
+    int add = 0;
     
     public PlayerObject()
     {
@@ -20,4 +22,29 @@ public class PlayerObject {
     public int getX(){
         return this.x;
     }
+    public void addX(int cursor){
+        cursor -=100;
+        redc = 0;
+        if(add < 7){
+        add++;
+        }
+        x+=add;
+        if(x > cursor){
+            x = cursor;
+        }
+    }
+    
+    public void reduceX(int cursor){
+         cursor -=100;
+        add = 0;
+        if(redc < 7){
+        redc++;
+        }
+        x-=redc;
+         if(x < cursor){
+            x = cursor;
+        }
+       
+    }
+    
 }

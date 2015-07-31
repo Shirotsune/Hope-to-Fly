@@ -9,22 +9,25 @@ import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseEvent;
 import javax.swing.JPanel;
 
-public class MouseHandler extends JPanel implements MouseMotionListener  {
-        
-        public MouseHandler()
-        {
-            
-        }
-        
-        @Override
-        public void mouseMoved(MouseEvent e) {
-            
-        }
+public class MouseHandler extends JPanel implements MouseMotionListener {
 
-        
-        @Override
-        public void mouseDragged(MouseEvent e) {
-                
-        }
+    int x = 0;
 
+    public MouseHandler() {
+
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+        this.x = e.getX();
+    }
+
+    @Override
+    public void mouseDragged(MouseEvent e) {
+
+    }
+
+    public int getMouse() {
+        return x;
+    }
 }

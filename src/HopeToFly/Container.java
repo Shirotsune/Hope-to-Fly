@@ -15,6 +15,8 @@ public class Container extends JPanel implements Runnable  {
     private JFrame frame;
     RendingManager render;
     EventHandler listener;
+    int cursor_x;
+    
     
     @Override
     public void run() {
@@ -38,6 +40,7 @@ public class Container extends JPanel implements Runnable  {
     private void Create(java.awt.Container container) {
         container.add(render);
         frame.addKeyListener(listener);
+        frame.addMouseMotionListener(listener.mouse);
     }
 
     public JFrame getFrame() {
@@ -45,6 +48,7 @@ public class Container extends JPanel implements Runnable  {
     }
 
     public void refresh() {
+        render.pass(listener.ask());
         render.repaint();
     }
 
