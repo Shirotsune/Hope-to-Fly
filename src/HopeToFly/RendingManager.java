@@ -20,13 +20,13 @@ import HopeToFly.Objects.*;
 import java.util.ArrayList;
 
 
-public class RendingManager implements Runnable {
+public class RendingManager {
     
     PlayerObject Player;
     ArrayList<WishObject> Wishes;
     ArrayList<StarObject> Stars;
     ArrayList<FearObject> Fears;
-    private JFrame frame;
+
     
     public RendingManager(ObjectManager Object)
     {
@@ -36,39 +36,8 @@ public class RendingManager implements Runnable {
         this.Stars = Object.Stars;
         this.Fears = Object.Fears;
     
-        this.run();
+     
         
         }
-    
-    @Override
-    public void run() 
-    {
-        frame = new JFrame("Hope to Fly");
-        frame.setPreferredSize(new Dimension(640, 800));
-
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-        Create(frame.getContentPane());
-
-        frame.pack();
-        frame.setVisible(true);
-    }
-    
-        private void Create(Container container) 
-    {
-       // container.add(); 
-        
-        //
-    }
-
-    public JFrame getFrame() 
-    {
-        return frame;
-    }
-
-    public void refresh()
-    {
-       
-    }
     
 }
