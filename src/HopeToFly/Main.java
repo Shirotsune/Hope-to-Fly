@@ -15,13 +15,12 @@ public class Main {
         RendingManager Render = new RendingManager(Objects); // Responsible of drawing all game assets.
         SoundManager Sound = new SoundManager(); // Responsible of the sounds.
         Container container = new Container(Render, Listener); // Eats all objects.
-        
-        
+
         container.run();
         // Start game loop.
         int x = 0;
         Boolean y = true;
-        
+
         Objects.Init();
         for (;;) {
 
@@ -34,10 +33,10 @@ public class Main {
             }
             Objects.refresh();
             container.refresh();
-            
-            x++;
-            if(x<1750){
-            Render.background_y++;
+
+            if (x < 1750) {
+                x++;
+                Render.background_y++;
             }
             //        Render.wish_y+=2;
         }

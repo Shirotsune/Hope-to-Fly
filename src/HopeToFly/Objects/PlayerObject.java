@@ -25,7 +25,7 @@ public class PlayerObject {
     public void addX(int cursor){
         cursor -=100;
         redc = 0;
-        if(add < 7){
+        if(add < 10){
         add++;
         }
         x+=add;
@@ -37,7 +37,7 @@ public class PlayerObject {
     public void reduceX(int cursor){
          cursor -=100;
         add = 0;
-        if(redc < 7){
+        if(redc < 10){
         redc++;
         }
         x-=redc;
