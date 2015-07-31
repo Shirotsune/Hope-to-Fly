@@ -13,7 +13,7 @@ public class Main {
 
         // Initialize the game by loading one by one the assets.
         ObjectManager Objects = new ObjectManager(); // Responsible of all objects.
-        RendingManager GUI = new RendingManager(); // Responsible of drawing all game assets.
+        RendingManager GUI = new RendingManager(Objects); // Responsible of drawing all game assets.
         SoundManager Sound = new SoundManager(); // Responsible of the sounds.
         EventHandler Listener = new EventHandler(); // Responsible of the controls.
         
