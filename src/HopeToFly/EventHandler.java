@@ -10,11 +10,14 @@ import java.awt.Component;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class EventHandler implements KeyListener{
+
+public class EventHandler implements KeyListener {
+    
+    MouseHandler mouse;
     
     public EventHandler()
             {
-                
+             this.mouse = new MouseHandler();   
             }
     
     @Override
