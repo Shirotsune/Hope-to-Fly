@@ -38,6 +38,9 @@ public class RendingManager extends JPanel {
     URL Ground_imageURL = cl.getResource("HopeToFly/Assets/maa.png");
     Image Ground = Toolkit.getDefaultToolkit().createImage(Ground_imageURL); //Background -> y values: 0 - (-1760)
     
+    URL Fox_Sitting_imageURL = cl.getResource("HopeToFly/Assets/kettu_istuu.png");
+    Image SittingFox = Toolkit.getDefaultToolkit().createImage(Fox_Sitting_imageURL);
+    
     public RendingManager(ObjectManager Object)
     {
         // Object manager passes it's objects for graphic rendering so that the classes may Inter-operate.
@@ -52,7 +55,8 @@ public class RendingManager extends JPanel {
        // super.paintComponent(graphics);
         graphics.drawImage(Background, 0, background_y, this);
         graphics.drawImage(Ground, 0, ground_y, this);
-       
+        graphics.drawImage(SittingFox, 260, 620, this);
+        
     }
 
     
