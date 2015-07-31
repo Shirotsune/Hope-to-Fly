@@ -31,27 +31,8 @@ public class Main {
             }
 
             container.refresh();
-            if (y) {
-                x += 4;
-            } else {
-                x -= 4;
 
-            }
-            if (x > 1750) {
-                y = false;
-            }
-            if (x < 20) {
-                y = true;
-            }
-
-            if (y == true) {
-                Render.background_y += 4;
-                Render.ground_y += 4;
-            } else {
-                Render.background_y -= 4;
-                Render.ground_y -= 4;
-            }
-
+            Render.background_y++;
         }
 
     }
