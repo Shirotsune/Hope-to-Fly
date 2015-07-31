@@ -20,6 +20,11 @@ public class EventHandler implements KeyListener {
              this.mouse = new MouseHandler();   
             }
     
+    void getMouse(MouseHandler mouse)
+    {
+        
+    }
+    
     @Override
     public void keyPressed(KeyEvent e)
     {
