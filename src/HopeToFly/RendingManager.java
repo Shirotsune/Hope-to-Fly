@@ -18,9 +18,11 @@ import javax.swing.SwingUtilities;
 import HopeToFly.Objects.*;
 
 import java.util.ArrayList;
+import java.awt.Graphics;
+import javax.swing.JPanel;
+import java.awt.*;
 
-
-public class RendingManager {
+public class RendingManager extends JPanel {
     
     PlayerObject Player;
     ArrayList<WishObject> Wishes;
@@ -35,9 +37,11 @@ public class RendingManager {
         this.Wishes = Object.Wishes;
         this.Stars = Object.Stars;
         this.Fears = Object.Fears;
-    
-     
-        
-        }
+ }
+      @Override
+    protected void paintComponent(Graphics graphics) {
+       
+    }
+
     
 }

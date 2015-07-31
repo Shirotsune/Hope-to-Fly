@@ -17,7 +17,8 @@ public class Main {
         RendingManager GUI = new RendingManager(Objects); // Responsible of drawing all game assets.
         SoundManager Sound = new SoundManager(); // Responsible of the sounds.
         Container container = new Container(GUI, Listener); // Eats all objects.
-        
+      
+        container.run();
         // Start game loop.
         for(;;){
             

@@ -36,7 +36,7 @@ public class Container extends JPanel implements Runnable  {
     }
     
     private void Create(java.awt.Container container) {
-        
+        container.add(render);
         frame.addKeyListener(listener);
     }
 
