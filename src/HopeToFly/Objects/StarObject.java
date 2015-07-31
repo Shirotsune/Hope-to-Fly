@@ -8,4 +8,7 @@ package HopeToFly.Objects;
 
 public class StarObject {
     
+    int x;
+    int y;
+    
 }

@@ -8,4 +8,13 @@ package HopeToFly.Objects;
 
 public class PlayerObject {
     
+    int x;
+    int y;
+    
+    public PlayerObject()
+    {
+        this.x = 320;
+        this.y = 50;
+    }
+    
 }

@@ -7,5 +7,6 @@ Copyright (c) 2015 - All rights reserved.
 package HopeToFly.Objects;
 
 public class WishObject {
-    
+    int x;
+    int y;
 }

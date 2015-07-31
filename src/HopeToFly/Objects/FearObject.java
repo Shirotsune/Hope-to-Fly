@@ -7,5 +7,6 @@ package HopeToFly.Objects;
 
 
 public class FearObject {
-    
+    int x;
+    int y;
 }
