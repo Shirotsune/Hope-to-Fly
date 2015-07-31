@@ -17,4 +17,7 @@ public class PlayerObject {
         this.y = 50;
     }
     
+    public int getX(){
+        return this.x;
+    }
 }

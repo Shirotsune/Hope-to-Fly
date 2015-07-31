@@ -75,9 +75,10 @@ public class RendingManager extends JPanel {
 
             graphics.drawImage(Wish, Wishes.get(i).ret_x(), Wishes.get(i).ret_y(), this);
         }
-
+        
         graphics.drawImage(FoxUpR, 250, 500, this);
         graphics.drawImage(FoxUpL, 400, 500, this);
+        graphics.drawImage(FoxUpR, Player.getX(), 300, this);
     }
 
 }
