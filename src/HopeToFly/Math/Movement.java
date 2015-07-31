@@ -9,7 +9,17 @@ import java.util.Random;
 
 public class Movement {
 
+    static int motion = 0;
+
     Random randomGenerator = new Random();
+
+    public int getMotion() {
+        return motion;
+    }
+
+    public void setMotion(int number) {
+        this.motion = number;
+    }
 
     public int floating_x() {
         int rand = randomGenerator.nextInt(2);
@@ -18,10 +28,10 @@ public class Movement {
 
             case 0:
                 return -1;
-             
+
             case 1:
                 return 0;
-               
+
             case 2:
                 return 1;
             default:

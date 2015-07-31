@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.awt.Graphics;
 import javax.swing.JPanel;
 import java.awt.*;
+import HopeToFly.Math.*;
 
 
 public class RendingManager extends JPanel {
@@ -30,6 +31,7 @@ public class RendingManager extends JPanel {
     ArrayList<FearObject> Fears;
     int background_y = -1760;
     int ground_y = 680;
+    Movement motion;
   
     
     ClassLoader cl = getClass().getClassLoader();
@@ -52,6 +54,7 @@ public class RendingManager extends JPanel {
         this.Wishes = Object.Wishes;
         this.Stars = Object.Stars;
         this.Fears = Object.Fears;
+        this.motion = Object.pattern;
         
  }
       @Override
@@ -65,7 +68,7 @@ public class RendingManager extends JPanel {
         
         // Drawing Wishes.
         for(int i = 0; i < 8; i++){
-        graphics.drawImage(Wish, Wishes.get(i).ret_x(), Wishes.get(i).ret_y(), this);
+        graphics.drawImage(Wish, Wishes.get(i).ret_x(), Wishes.get(i).ret_y()+motion.getMotion(), this);
         }
     }
 

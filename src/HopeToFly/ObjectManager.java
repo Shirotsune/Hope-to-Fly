@@ -16,6 +16,7 @@ public class ObjectManager {
     ArrayList<StarObject> Stars;
     ArrayList<FearObject> Fears;
     Movement pattern;
+    int motion = 0;
     
     public ObjectManager(){
         this.Player = new PlayerObject();
@@ -41,7 +42,9 @@ public class ObjectManager {
        }
  }
     
-    public void Refresh(){
-           
+    public void refresh(){
+        pattern.getMotion();
+        motion++;
+        pattern.setMotion(motion);
        }
 }

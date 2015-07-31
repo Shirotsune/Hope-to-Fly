@@ -15,7 +15,8 @@ public class Main {
         RendingManager Render = new RendingManager(Objects); // Responsible of drawing all game assets.
         SoundManager Sound = new SoundManager(); // Responsible of the sounds.
         Container container = new Container(Render, Listener); // Eats all objects.
-
+        
+        
         container.run();
         // Start game loop.
         int x = 0;
@@ -29,10 +30,10 @@ public class Main {
             } catch (InterruptedException ex) {
                 Thread.currentThread().interrupt();
             }
-
+            Objects.refresh();
             container.refresh();
-
-            Render.background_y++;
+            
+          //  Render.background_y++;
     //        Render.wish_y+=2;
         }
 
