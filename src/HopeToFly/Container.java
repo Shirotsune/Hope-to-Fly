@@ -7,9 +7,10 @@ package HopeToFly;
 
 import java.awt.Dimension;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
-public class Container implements Runnable {
+public class Container extends JPanel implements Runnable  {
 
     private JFrame frame;
     RendingManager render;
@@ -31,9 +32,11 @@ public class Container implements Runnable {
     public Container(RendingManager render, EventHandler listener)
     {
          this.listener = listener;
+         this.render = render;
     }
     
     private void Create(java.awt.Container container) {
+        
         frame.addKeyListener(listener);
     }
 

@@ -16,7 +16,7 @@ public class Main {
         EventHandler Listener = new EventHandler(); // Responsible of the controls.
         RendingManager GUI = new RendingManager(Objects); // Responsible of drawing all game assets.
         SoundManager Sound = new SoundManager(); // Responsible of the sounds.
-        Container container = new Container(); // Eats all objects.
+        Container container = new Container(GUI, Listener); // Eats all objects.
         
         // Start game loop.
         for(;;){
