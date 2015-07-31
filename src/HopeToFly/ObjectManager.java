@@ -6,6 +6,7 @@ Copyright (c) 2015 - All rights reserved.
 
 package HopeToFly;
 import HopeToFly.Objects.*;
+import HopeToFly.Math.*;
 import java.util.ArrayList;
 
 public class ObjectManager {
@@ -14,13 +15,14 @@ public class ObjectManager {
     ArrayList<WishObject> Wishes;
     ArrayList<StarObject> Stars;
     ArrayList<FearObject> Fears;
+    Movement pattern;
     
     public ObjectManager(){
         this.Player = new PlayerObject();
         this.Wishes = new ArrayList<WishObject>();
         this.Stars = new ArrayList<StarObject>();
         this.Fears = new ArrayList<FearObject>();
-        
+        this.pattern = new Movement();
         // We have to do with 8 objects of each type. To help with performance.
         // Although stars and wishesh are linked I'd like to keep the two completely
         // seperated from one another.
@@ -32,4 +34,14 @@ public class ObjectManager {
         }
     }
     
+    public void Init(){
+       for(int i = 0; i < 8; i++)
+       {
+           
+       }
+ }
+    
+    public void Refresh(){
+           
+       }
 }

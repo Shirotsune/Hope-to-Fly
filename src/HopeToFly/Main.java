@@ -33,6 +33,7 @@ public class Main {
             container.refresh();
 
             Render.background_y++;
+    //        Render.wish_y+=2;
         }
 
     }

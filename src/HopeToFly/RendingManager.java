@@ -30,6 +30,7 @@ public class RendingManager extends JPanel {
     ArrayList<FearObject> Fears;
     int background_y = -1760;
     int ground_y = 680;
+  
     
     ClassLoader cl = getClass().getClassLoader();
     URL Background_imageURL = cl.getResource("HopeToFly/Assets/bg.jpg");
@@ -40,6 +41,9 @@ public class RendingManager extends JPanel {
     
     URL Fox_Sitting_imageURL = cl.getResource("HopeToFly/Assets/kettu_istuu.png");
     Image SittingFox = Toolkit.getDefaultToolkit().createImage(Fox_Sitting_imageURL);
+    
+    URL Wish_imageURL = cl.getResource("HopeToFly/Assets/kivi_iso.png");
+    Image Wish = Toolkit.getDefaultToolkit().createImage(Wish_imageURL);
     
     public RendingManager(ObjectManager Object)
     {
@@ -55,8 +59,14 @@ public class RendingManager extends JPanel {
        // super.paintComponent(graphics);
         graphics.drawImage(Background, 0, background_y, this);
         graphics.drawImage(Ground, 0, ground_y, this);
+        
+        //Player object at Start of game.
         graphics.drawImage(SittingFox, 260, 620, this);
         
+        // Drawing Wishes.
+        for(int i = 0; i < 8; i++){
+        graphics.drawImage(Wish, Wishes.get(i).ret_x(), Wishes.get(i).ret_y(), this);
+        }
     }
 
     
