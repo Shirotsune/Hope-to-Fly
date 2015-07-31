@@ -21,6 +21,8 @@ public class Main {
         // Start game loop.
         int x = 0;
         Boolean y = true;
+        
+        Objects.Init();
         for (;;) {
 
             /* Temporary! */

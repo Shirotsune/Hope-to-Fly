@@ -17,6 +17,7 @@ public class ObjectManager {
     ArrayList<FearObject> Fears;
     Movement pattern;
     int motion = 0;
+    int spawnheight = 0;
     
     public ObjectManager(){
         this.Player = new PlayerObject();
@@ -38,13 +39,20 @@ public class ObjectManager {
     public void Init(){
        for(int i = 0; i < 8; i++)
        {
-           
+        pattern.setMotion(1);   
+        int temp = Wishes.get(i).ret_y(); 
+        Wishes.get(i).add_y(spawnheight);
+        spawnheight -=120;
        }
  }
     
     public void refresh(){
-        pattern.getMotion();
-        motion++;
-        pattern.setMotion(motion);
+      for(int i = 0; i < 8; i++)
+      {
+          if(Wishes.get(i).ret_y() > 800 ){
+              Wishes.get(i).respawn(spawnheight);     
+          }
+      }
+        spawnheight++;
        }
 }

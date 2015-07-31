@@ -17,4 +17,13 @@ public class WishObject {
     public int ret_y() {
         return this.y;
     }
+    
+    public void respawn(int number){
+        this.y = 0;
+        this.y += number;
+    }
+    
+    public void add_y(int number){
+        this.y += number;
+    }
 }
