@@ -29,10 +29,14 @@ public class RendingManager extends JPanel {
     ArrayList<StarObject> Stars;
     ArrayList<FearObject> Fears;
     int background_y = -1760;
+    int ground_y = 680;
     
     ClassLoader cl = getClass().getClassLoader();
-    URL imageURL = cl.getResource("HopeToFly/Assets/bg.jpg");
-    Image Background = Toolkit.getDefaultToolkit().createImage(imageURL); //Background -> y values: 0 - (-1760)
+    URL Background_imageURL = cl.getResource("HopeToFly/Assets/bg.jpg");
+    Image Background = Toolkit.getDefaultToolkit().createImage(Background_imageURL); //Background -> y values: 0 - (-1760)
+    
+    URL Ground_imageURL = cl.getResource("HopeToFly/Assets/maa.png");
+    Image Ground = Toolkit.getDefaultToolkit().createImage(Ground_imageURL); //Background -> y values: 0 - (-1760)
     
     public RendingManager(ObjectManager Object)
     {
@@ -47,6 +51,7 @@ public class RendingManager extends JPanel {
     protected void paintComponent(Graphics graphics) {
        // super.paintComponent(graphics);
         graphics.drawImage(Background, 0, background_y, this);
+        graphics.drawImage(Ground, 0, ground_y, this);
        
     }
 

@@ -22,9 +22,10 @@ public class Main {
         // Start game loop.
         for(;;){
             
-                        try 
+            /* Temporary! */
+            try 
             {
-                Thread.sleep(25); /* Defines FPS */
+                Thread.sleep(50); /* Defines FPS */
             }catch(InterruptedException ex){
                 Thread.currentThread().interrupt();
             }
@@ -33,6 +34,7 @@ public class Main {
             
             
             Render.background_y++;
+            Render.ground_y++;
            
         }
         
