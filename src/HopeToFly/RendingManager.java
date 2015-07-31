@@ -13,14 +13,14 @@ import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 import java.awt.Graphics;
 import javax.swing.SwingUtilities;
-/* End of javax.swing*/
-
+import java.awt.Image;
+import java.net.URL; 
 import HopeToFly.Objects.*;
-
 import java.util.ArrayList;
 import java.awt.Graphics;
 import javax.swing.JPanel;
 import java.awt.*;
+
 
 public class RendingManager extends JPanel {
     
@@ -28,7 +28,11 @@ public class RendingManager extends JPanel {
     ArrayList<WishObject> Wishes;
     ArrayList<StarObject> Stars;
     ArrayList<FearObject> Fears;
-
+    int background_y = -1760;
+    
+    ClassLoader cl = getClass().getClassLoader();
+    URL imageURL = cl.getResource("HopeToFly/Assets/bg.jpg");
+    Image Background = Toolkit.getDefaultToolkit().createImage(imageURL); //Background -> y values: 0 - (-1760)
     
     public RendingManager(ObjectManager Object)
     {
@@ -37,9 +41,12 @@ public class RendingManager extends JPanel {
         this.Wishes = Object.Wishes;
         this.Stars = Object.Stars;
         this.Fears = Object.Fears;
+        
  }
       @Override
     protected void paintComponent(Graphics graphics) {
+       // super.paintComponent(graphics);
+        graphics.drawImage(Background, 0, background_y, this);
        
     }
 

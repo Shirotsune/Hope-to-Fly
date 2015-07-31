@@ -45,7 +45,7 @@ public class Container extends JPanel implements Runnable  {
     }
 
     public void refresh() {
-
+        render.repaint();
     }
 
 }
