@@ -35,8 +35,11 @@ public class Main {
             Objects.refresh();
             container.refresh();
             
-          //  Render.background_y++;
-    //        Render.wish_y+=2;
+            x++;
+            if(x<1750){
+            Render.background_y++;
+            }
+            //        Render.wish_y+=2;
         }
 
     }
