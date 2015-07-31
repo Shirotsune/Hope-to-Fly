@@ -6,20 +6,27 @@ Copyright (c) 2015 - All rights reserved.
 
 package HopeToFly;
 
+/* Currently using this for rending, a different aspect might be chosen later on. */
+import java.awt.Container;
+import java.awt.Dimension;
+import javax.swing.JFrame;
+import javax.swing.WindowConstants;
+import java.awt.Graphics;
+import javax.swing.SwingUtilities;
+/* End of javax.swing*/
+
 import HopeToFly.Objects.*;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Blackstorm
- */
-public class RendingManager {
+
+public class RendingManager implements Runnable {
     
     PlayerObject Player;
     ArrayList<WishObject> Wishes;
     ArrayList<StarObject> Stars;
     ArrayList<FearObject> Fears;
+    private JFrame frame;
     
     public RendingManager(ObjectManager Object)
     {
@@ -28,6 +35,40 @@ public class RendingManager {
         this.Wishes = Object.Wishes;
         this.Stars = Object.Stars;
         this.Fears = Object.Fears;
+    
+        this.run();
+        
+        }
+    
+    @Override
+    public void run() 
+    {
+        frame = new JFrame("Hope to Fly");
+        frame.setPreferredSize(new Dimension(640, 800));
+
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+        Create(frame.getContentPane());
+
+        frame.pack();
+        frame.setVisible(true);
+    }
+    
+        private void Create(Container container) 
+    {
+       // container.add(); 
+        
+        //
+    }
+
+    public JFrame getFrame() 
+    {
+        return frame;
+    }
+
+    public void refresh()
+    {
+       
     }
     
 }
