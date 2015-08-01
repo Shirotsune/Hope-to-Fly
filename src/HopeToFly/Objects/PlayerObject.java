@@ -16,11 +16,15 @@ public class PlayerObject {
     public PlayerObject()
     {
         this.x = 320;
-        this.y = 50;
+        this.y = 500;
     }
     
     public int getX(){
         return this.x;
+    }
+    
+    public int getY(){
+        return this.y;
     }
     public void addX(int cursor){
         cursor -=100;

@@ -39,4 +39,17 @@ public class WishObject {
     public void add_y(int number) {
         this.y += number;
     }
+    //  
+    public boolean PlayerCollision(int x, int y)
+    {
+        // The following values are black magic - magic numbers.
+        if(((y-this.y < 0) && (y-this.y > -70)) && ((x-this.x < 15) && (x-this.x > -100)))
+        {
+            System.out.println(this.x +" " +  this.y +" " +x +" " + y );
+            return true;
+        }
+        
+        return false;
+    }
+    
 }

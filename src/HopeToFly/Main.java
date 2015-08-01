@@ -37,6 +37,8 @@ public class Main {
             if (x < 1750) {
                 x++;
                 Render.background_y++;
+                Render.foxstart_y++;
+                Render.ground_y++;
             }
             //        Render.wish_y+=2;
         }

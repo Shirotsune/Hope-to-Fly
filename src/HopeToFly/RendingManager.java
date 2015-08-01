@@ -29,6 +29,7 @@ public class RendingManager extends JPanel {
     ArrayList<FearObject> Fears;
     int background_y = -1760;
     int ground_y = 680;
+    int foxstart_y = 620;
     Movement motion;
     int cursor_pos = 0;
     boolean right = true;
@@ -69,7 +70,7 @@ public class RendingManager extends JPanel {
         graphics.drawImage(Ground, 0, ground_y, this);
 
         //Player object at Start of game.
-        graphics.drawImage(SittingFox, 260, 620, this);
+        graphics.drawImage(SittingFox, 260, foxstart_y, this);
 
         // Drawing Wishes.
         for (int i = 0; i < 8; i++) {
@@ -88,9 +89,9 @@ public class RendingManager extends JPanel {
         
         }
         if(right)
-        graphics.drawImage(FoxUpR, Player.getX(), 300, this);
+        graphics.drawImage(FoxUpR, Player.getX(), Player.getY(), this);
         else
-        graphics.drawImage(FoxUpL, Player.getX(), 300, this);    
+        graphics.drawImage(FoxUpL, Player.getX(), Player.getY(), this);    
        
         //graphics.drawImage(FoxUpR, Player.getX(), 300, this);
     }
