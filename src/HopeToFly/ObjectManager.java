@@ -75,7 +75,7 @@ public class ObjectManager {
 
         pattern.setMotion(motion);
         spawnheight += motion;
-        if (gravityframe == 4) {
+        if (gravityframe == 5) {
             gravityframe = 0;
         }
     }
