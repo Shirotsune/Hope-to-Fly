@@ -83,7 +83,7 @@ public class RendingManager extends JPanel {
         graphics.drawImage(Ground, 0, ground_y, this);
 
         //Player object at Start of game.
-        graphics.drawImage(SittingFox, 260, foxstart_y, this);
+       // graphics.drawImage(SittingFox, 260, foxstart_y, this);
 
         // Drawing Wishes.
         for (int i = 0; i < 8; i++) {

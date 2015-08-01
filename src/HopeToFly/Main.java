@@ -7,6 +7,8 @@ package HopeToFly;
 
 public class Main {
 
+    // Java-Runtime bug seems to exsist. (Corruption resulting in virtual machine crash.)
+    
     public static void main(String[] args) {
 
         // Initialize the game by loading one by one the assets.
@@ -22,7 +24,7 @@ public class Main {
         Boolean y = true;
 
         Objects.Init();
-        Sound.Play();
+       // Sound.Play();
         for (;;) {
 
             /* Temporary! */

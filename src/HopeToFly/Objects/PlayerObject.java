@@ -12,7 +12,7 @@ public class PlayerObject {
     int y;
     int redc = 0;
     int add = 0;
-    boolean falling;
+    boolean falling = false;
     
    public void fall(boolean falling){
         this.falling = falling;
