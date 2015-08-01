@@ -45,7 +45,7 @@ public class WishObject {
         // The following values are black magic - magic numbers.
         if(((y-this.y < 0) && (y-this.y > -70)) && ((x-this.x < 15) && (x-this.x > -100)))
         {
-            System.out.println(this.x +" " +  this.y +" " +x +" " + y );
+          //  System.out.println(this.x +" " +  this.y +" " +x +" " + y );
             return true;
         }
         

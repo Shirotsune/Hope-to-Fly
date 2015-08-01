@@ -62,6 +62,8 @@ public class ObjectManager {
                     }
                     if (ascending == true) {
                         extraboost = 2;
+
+                        System.out.println(Player.getY());
                     }
                     ascending = true;
                     newGame = 1;
