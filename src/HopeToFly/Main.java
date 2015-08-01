@@ -8,6 +8,7 @@ package HopeToFly;
 public class Main {
 
     // Java-Runtime bug seems to exsist. (Corruption resulting in virtual machine crash.)
+    // Netbeans debug seems to have occasionally issues, bugs might not be java runtime related?
     
     public static void main(String[] args) {
 
