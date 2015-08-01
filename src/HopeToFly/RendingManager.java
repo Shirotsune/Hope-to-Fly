@@ -34,7 +34,7 @@ public class RendingManager extends JPanel {
     int cursor_pos = 0;
     boolean right = true;
     Image FoxState;
-    
+
     ClassLoader cl = getClass().getClassLoader();
     URL Background_imageURL = cl.getResource("HopeToFly/Assets/bg.jpg");
     Image Background = Toolkit.getDefaultToolkit().createImage(Background_imageURL); //Background -> y values: 0 - (-1760)
@@ -59,13 +59,13 @@ public class RendingManager extends JPanel {
 
     URL FoxJL_URL = cl.getResource("HopeToFly/Assets/kettu_hyppy_l.png");
     Image FoxJL = Toolkit.getDefaultToolkit().createImage(FoxJL_URL);
-    
+
     URL FoxFR_URL = cl.getResource("HopeToFly/Assets/kettu_putoo_r.png");
     Image FoxFR = Toolkit.getDefaultToolkit().createImage(FoxFR_URL);
-    
+
     URL FoxFL_URL = cl.getResource("HopeToFly/Assets/kettu_putoo_l.png");
     Image FoxFL = Toolkit.getDefaultToolkit().createImage(FoxFL_URL);
-    
+
     public RendingManager(ObjectManager Object) {
         // Object manager passes it's objects for graphic rendering so that the classes may Inter-operate.
         this.Player = Object.Player;
@@ -102,10 +102,18 @@ public class RendingManager extends JPanel {
 
         }
         if (right) {
-            FoxState = FoxUpR;
+            if (Player.status() == false) {
+                FoxState = FoxUpR;
+            } else {
+                FoxState = FoxFR;
+            }
             graphics.drawImage(FoxState, Player.getX(), Player.getY(), this);
         } else {
-            FoxState = FoxUpL;
+            if (Player.status() == false) {
+                FoxState = FoxUpL;
+            } else {
+                FoxState = FoxFL;
+            }
             graphics.drawImage(FoxState, Player.getX(), Player.getY(), this);
         }
 

@@ -21,9 +21,9 @@ public class ObjectManager {
     int extraboost = 0; //Blaaaaaack maaagichhhhhhhsssss
     int spawnheight = 720;
     int gravityframe = 0;
+    int fall = 0;
     boolean ascending = false;
-    
-    
+
     int newGame = 0; // TEMP TEST
 
     public ObjectManager() {
@@ -57,15 +57,17 @@ public class ObjectManager {
 
                 // See, if a collision happened.
                 if (Wishes.get(i).PlayerCollision(Player.getX(), Player.getY()) == true) {
-                    if (jump == 0) {
-                        jump = 1;
-                    }
+                  //  if (jump == 0) {
+                        jump = 10;
+                   // }
                     if (ascending == true) {
-                        extraboost = 2;
+                       // extraboost = 2;
 
                         System.out.println(Player.getY());
                     }
                     ascending = true;
+                    Player.fall(false);
+                    fall = 0; // Black-magic gravity.
                     newGame = 1;
                 }
                 // Respawn wish afterwards.
@@ -84,17 +86,22 @@ public class ObjectManager {
             if (extraboost != 0) {
                 extraboost--;
             }
+            if ((ascending == false) && jump == 0) {
+                fall += 2;
+                Player.fall(true);
+            }
         }
         gravityframe++;
 
-        if(newGame == 0) {
+        if (newGame == 0) {
             motion = jump + 2;
-        }else{
-            motion = jump;
+        } else {
+            motion = jump - fall;
         }
 
         pattern.setMotion(motion);
         spawnheight += motion;
+        // Defines speed to remain more constant for human eye.
         if (gravityframe == 4) {
             gravityframe = 0;
         }

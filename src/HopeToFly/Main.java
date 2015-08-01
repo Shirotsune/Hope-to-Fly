@@ -36,7 +36,15 @@ public class Main {
 
             if (x < 1750) {
                 x++;
+            
+                if(Objects.Player.status() == false){
                 Render.background_y++;
+              }
+              else
+              {
+                  Render.background_y--;
+                  x--;
+              }
                 Render.foxstart_y++;
                 Render.ground_y++;
             }

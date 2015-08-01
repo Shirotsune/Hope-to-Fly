@@ -12,6 +12,15 @@ public class PlayerObject {
     int y;
     int redc = 0;
     int add = 0;
+    boolean falling;
+    
+   public void fall(boolean falling){
+        this.falling = falling;
+    }
+    
+   public boolean status(){
+        return falling;
+    }
     
     public PlayerObject()
     {
