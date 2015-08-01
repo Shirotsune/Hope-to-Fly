@@ -33,7 +33,8 @@ public class RendingManager extends JPanel {
     Movement motion;
     int cursor_pos = 0;
     boolean right = true;
-
+    Image FoxState;
+    
     ClassLoader cl = getClass().getClassLoader();
     URL Background_imageURL = cl.getResource("HopeToFly/Assets/bg.jpg");
     Image Background = Toolkit.getDefaultToolkit().createImage(Background_imageURL); //Background -> y values: 0 - (-1760)
@@ -53,6 +54,18 @@ public class RendingManager extends JPanel {
     URL Fox_UL = cl.getResource("HopeToFly/Assets/kettu_up_l.png");
     Image FoxUpL = Toolkit.getDefaultToolkit().createImage(Fox_UL);
 
+    URL FoxJR_URL = cl.getResource("HopeToFly/Assets/kettu_hyppy_r.png");
+    Image FoxJR = Toolkit.getDefaultToolkit().createImage(FoxJR_URL);
+
+    URL FoxJL_URL = cl.getResource("HopeToFly/Assets/kettu_hyppy_l.png");
+    Image FoxJL = Toolkit.getDefaultToolkit().createImage(FoxJL_URL);
+    
+    URL FoxFR_URL = cl.getResource("HopeToFly/Assets/kettu_putoo_r.png");
+    Image FoxFR = Toolkit.getDefaultToolkit().createImage(FoxFR_URL);
+    
+    URL FoxFL_URL = cl.getResource("HopeToFly/Assets/kettu_putoo_l.png");
+    Image FoxFL = Toolkit.getDefaultToolkit().createImage(FoxFL_URL);
+    
     public RendingManager(ObjectManager Object) {
         // Object manager passes it's objects for graphic rendering so that the classes may Inter-operate.
         this.Player = Object.Player;
@@ -78,27 +91,30 @@ public class RendingManager extends JPanel {
 
             graphics.drawImage(Wish, Wishes.get(i).ret_x(), Wishes.get(i).ret_y(), this);
         }
-        
-        if(Player.getX() < cursor_pos-100){
+
+        if (Player.getX() < cursor_pos - 100) {
             Player.addX(cursor_pos);
             right = true;
-       
-        } else if(Player.getX() > cursor_pos-100){
+
+        } else if (Player.getX() > cursor_pos - 100) {
             Player.reduceX(cursor_pos);
             right = false;
-        
+
         }
-        if(right)
-        graphics.drawImage(FoxUpR, Player.getX(), Player.getY(), this);
-        else
-        graphics.drawImage(FoxUpL, Player.getX(), Player.getY(), this);    
-       
+        if (right) {
+            FoxState = FoxUpR;
+            graphics.drawImage(FoxState, Player.getX(), Player.getY(), this);
+        } else {
+            FoxState = FoxUpL;
+            graphics.drawImage(FoxState, Player.getX(), Player.getY(), this);
+        }
+
         //graphics.drawImage(FoxUpR, Player.getX(), 300, this);
     }
-    
-    public void pass(int number){
+
+    public void pass(int number) {
         this.cursor_pos = number;
-       // System.out.println(cursor_pos);
+        // System.out.println(cursor_pos);
     }
 
 }
