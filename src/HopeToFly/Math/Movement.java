@@ -20,6 +20,27 @@ public class Movement {
     public void setMotion(int number) {
         this.motion = number;
     }
+   
+    public int jump(int number, boolean ascending){
+        if (number == 0){
+            return 0;
+        }
+        if(ascending){
+        for(int i = 0; i < 12; i++)
+        {
+            if(number==i){
+                return number+1;
+            }
+        }
+        }
+        
+        for (int i = 0; i < 13; i++){
+            if(number==i){
+                return number-1;
+            }
+        }
+        return number;
+    }
 
     public int floating_x() {
         int rand = randomGenerator.nextInt(2);
