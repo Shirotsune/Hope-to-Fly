@@ -22,6 +22,7 @@ public class Main {
         Boolean y = true;
 
         Objects.Init();
+        Sound.Play();
         for (;;) {
 
             /* Temporary! */
