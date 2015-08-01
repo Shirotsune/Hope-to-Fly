@@ -51,4 +51,11 @@ public class PlayerObject {
        
     }
     
+    public void addY(){
+        this.y++;
+    }
+    public void redcY(){
+        this.y--;
+    }
+    
 }

@@ -18,9 +18,13 @@ public class ObjectManager {
     Movement pattern;
     int motion = 2;
     int jump = 0;
+    int extraboost = 0; //Blaaaaaack maaagichhhhhhhsssss
     int spawnheight = 720;
     int gravityframe = 0;
     boolean ascending = false;
+    
+    
+    int newGame = 0; // TEMP TEST
 
     public ObjectManager() {
         this.Player = new PlayerObject();
@@ -53,9 +57,14 @@ public class ObjectManager {
 
                 // See, if a collision happened.
                 if (Wishes.get(i).PlayerCollision(Player.getX(), Player.getY()) == true) {
-                    if(jump == 0){
-                    jump = 1;}
+                    if (jump == 0) {
+                        jump = 1;
+                    }
+                    if (ascending == true) {
+                        extraboost = 2;
+                    }
                     ascending = true;
+                    newGame = 1;
                 }
                 // Respawn wish afterwards.
                 Wishes.get(i).respawn(spawnheight);
@@ -64,18 +73,27 @@ public class ObjectManager {
 
         }
         if (gravityframe == 0) {
-            jump = pattern.jump(jump, ascending);
-            if (jump == 12) {
+            jump = pattern.jump(jump, ascending, extraboost);
+
+            if ((jump >= 17) && (extraboost == 0)) {
                 ascending = false;
+            }
+
+            if (extraboost != 0) {
+                extraboost--;
             }
         }
         gravityframe++;
 
-        motion = jump + 2;
+        if(newGame == 0) {
+            motion = jump + 2;
+        }else{
+            motion = jump;
+        }
 
         pattern.setMotion(motion);
         spawnheight += motion;
-        if (gravityframe == 5) {
+        if (gravityframe == 4) {
             gravityframe = 0;
         }
     }
