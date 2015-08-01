@@ -23,6 +23,8 @@ public class ObjectManager {
     int gravityframe = 0;
     int fall = 0;
     boolean ascending = false;
+    
+    int score = 0; // Score 
 
     int newGame = 0; // TEMP TEST
 
@@ -58,7 +60,7 @@ public class ObjectManager {
                 // See, if a collision happened.
                 if (Wishes.get(i).PlayerCollision(Player.getX(), Player.getY()) == true) {
                   //  if (jump == 0) {
-                        jump = 10;
+                        jump = 15;
                    // }
                     if (ascending == true) {
                        // extraboost = 2;
@@ -66,6 +68,8 @@ public class ObjectManager {
                         System.out.println(Player.getY());
                     }
                     ascending = true;
+                    score++;
+                    System.out.println("Current score: " + score);
                     Player.fall(false);
                     fall = 0; // Black-magic gravity.
                     newGame = 1;
