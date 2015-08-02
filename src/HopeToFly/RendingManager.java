@@ -87,7 +87,7 @@ public class RendingManager extends JPanel {
         // super.paintComponent(graphics);
         graphics.drawImage(Background, 0, background_y, this);
         graphics.drawImage(tittletext, 0, tittle_y, this);
-        graphics.drawImage(Ground, 0, ground_y, this);
+      //  graphics.drawImage(Ground, 0, ground_y, this);
 
         //Player object at Start of game.
        // graphics.drawImage(SittingFox, 260, foxstart_y, this);
