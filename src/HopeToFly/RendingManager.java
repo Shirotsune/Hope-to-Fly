@@ -28,6 +28,7 @@ public class RendingManager extends JPanel {
     ArrayList<StarObject> Stars;
     ArrayList<FearObject> Fears;
     int background_y = -1760;
+    int tittle_y = -400;
     int ground_y = 680;
     int foxstart_y = 620;
     Movement motion;
@@ -39,6 +40,11 @@ public class RendingManager extends JPanel {
     URL Background_imageURL = cl.getResource("HopeToFly/Assets/bg.jpg");
     Image Background = Toolkit.getDefaultToolkit().createImage(Background_imageURL); //Background -> y values: 0 - (-1760)
 
+    
+    URL tittletextURL = cl.getResource("HopeToFly/Assets/hope_to_fly.png");
+    Image tittletext = Toolkit.getDefaultToolkit().createImage(tittletextURL);
+
+    
     URL Ground_imageURL = cl.getResource("HopeToFly/Assets/maa.png");
     Image Ground = Toolkit.getDefaultToolkit().createImage(Ground_imageURL); //Background -> y values: 0 - (-1760)
 
@@ -80,6 +86,7 @@ public class RendingManager extends JPanel {
     protected void paintComponent(Graphics graphics) {
         // super.paintComponent(graphics);
         graphics.drawImage(Background, 0, background_y, this);
+        graphics.drawImage(tittletext, 0, tittle_y, this);
         graphics.drawImage(Ground, 0, ground_y, this);
 
         //Player object at Start of game.

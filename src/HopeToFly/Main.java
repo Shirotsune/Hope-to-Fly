@@ -9,7 +9,6 @@ public class Main {
 
     // Java-Runtime bug seems to exsist. (Corruption resulting in virtual machine crash.)
     // Netbeans debug seems to have occasionally issues, bugs might not be java runtime related?
-    
     public static void main(String[] args) {
 
         // Initialize the game by loading one by one the assets.
@@ -22,12 +21,17 @@ public class Main {
         container.run();
         // Start game loop.
         int x = 0;
+        int start = 0;
         Boolean y = true;
 
         Objects.Init();
-       // Sound.Play();
+        Sound.Play();
         for (;;) {
-
+            if(start < 300){
+                start++;
+                container.refresh();
+            }
+            else{
             /* Temporary! */
             try {
                 Thread.sleep(20); /* Defines FPS */
@@ -40,21 +44,19 @@ public class Main {
 
             if (x < 1750) {
                 x++;
-            
-                if(Objects.Player.status() == false){
-                Render.background_y++;
-              }
-              else
-              {
-                  Render.background_y--;
-                  x--;
-              }
+
+                if (Objects.Player.status() == false) {
+                    Render.background_y++;
+                } else {
+                    Render.background_y--;
+                    x--;
+                }
                 Render.foxstart_y++;
                 Render.ground_y++;
             }
             //        Render.wish_y+=2;
         }
-
+        }
     }
 
 }
