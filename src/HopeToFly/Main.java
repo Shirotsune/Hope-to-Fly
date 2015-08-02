@@ -27,11 +27,7 @@ public class Main {
         Objects.Init();
         Sound.Play();
         for (;;) {
-            if(start < 300){
-                start++;
-                container.refresh();
-            }
-            else{
+
             /* Temporary! */
             try {
                 Thread.sleep(20); /* Defines FPS */
@@ -56,7 +52,7 @@ public class Main {
             }
             //        Render.wish_y+=2;
         }
-        }
+
     }
 
 }
