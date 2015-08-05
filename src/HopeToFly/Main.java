@@ -15,9 +15,8 @@ public class Main {
         ObjectManager Objects = new ObjectManager(); // Responsible of all objects.
         EventHandler Listener = new EventHandler(); // Responsible of the controls.
         RendingManager Render = new RendingManager(Objects); // Responsible of drawing all game assets.
-       
-            SoundManager Sound = new SoundManager(); // Responsible of the sounds.
-       
+        SoundManager Sound = new SoundManager(); // Responsible of the sounds.
+
         // SoundManager does not work in ubuntu, if drivers are not updated.
         Container container = new Container(Render, Listener); // Eats all objects.
 
@@ -29,7 +28,7 @@ public class Main {
 
         Objects.Init();
         if (System.getProperty("os.name").startsWith("Windows") == true) {
-              Sound.Play(); // >> Does not work in Ubuntu, if drivers are not updated.
+            Sound.Play(); // >> Does not work in Ubuntu, if drivers are not updated.
         }
         for (;;) {
 
@@ -44,15 +43,20 @@ public class Main {
             container.refresh();
 
             if (x < 1750) {
-                x++;
+                
 
                 if (Objects.Player.status() == false) {
                     Render.background_y++;
-                } else {
+                    x++;
+                }
+            }
+            if (Objects.Player.status() == true) {
+                if (x!=0) {
                     Render.background_y--;
+                    System.out.println(x);
                     x--;
                 }
-              //  Render.foxstart_y++;
+                //  Render.foxstart_y++;
                 //  Render.ground_y++;
             }
             //        Render.wish_y+=2;
