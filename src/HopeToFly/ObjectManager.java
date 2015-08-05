@@ -18,11 +18,11 @@ public class ObjectManager {
     Movement pattern;
     int motion = 2;
     int jump = 0;
-    int spawnheight = 720;
+    int spawnheight = 0;
     int gravityframe = 0;
     int fall = 0;
     boolean ascending = false;
-    
+
     int score = 0; // Score 
 
     int newGame = 0; // TEMP TEST
@@ -44,6 +44,7 @@ public class ObjectManager {
     }
 
     public void Init() {
+
         for (int i = 0; i < 8; i++) {
             pattern.setMotion(motion);
             int temp = Wishes.get(i).ret_y();
@@ -58,11 +59,10 @@ public class ObjectManager {
 
                 // See, if a collision happened.
                 if (Wishes.get(i).PlayerCollision(Player.getX(), Player.getY()) == true) {
-                  //  if (jump == 0) {
-                        jump = 15;
-                   // }
+                    //  if (jump == 0) {
+                    jump = 15;
+                    // }
                     if (ascending == true) {
-                       
 
                         System.out.println(Player.getY());
                     }
