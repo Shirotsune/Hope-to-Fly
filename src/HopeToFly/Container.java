@@ -41,6 +41,7 @@ public class Container extends JPanel implements Runnable  {
         container.add(render);
         frame.addKeyListener(listener);
         frame.addMouseMotionListener(listener.mouse);
+       //frame.addMouseInputListener(listener.mouse);
     }
 
     public JFrame getFrame() {
@@ -49,6 +50,8 @@ public class Container extends JPanel implements Runnable  {
 
     public void refresh() {
         render.pass(listener.ask());
+        render.passMenu(listener.askMenu());
+        render.passClick(listener.askClick());
         render.repaint();
     }
 

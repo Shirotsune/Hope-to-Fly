@@ -23,6 +23,14 @@ public class EventHandler implements KeyListener {
     public int ask() {
         return mouse.getMouse();
     }
+    
+    public int askMenu() {
+        return mouse.getMouseMenu();
+    }
+    
+    public boolean askClick(){
+        return mouse.mouseClick();
+    }
 
     @Override
     public void keyPressed(KeyEvent e) {

@@ -25,6 +25,7 @@ public class Main {
         int x = 0;
         int start = 0;
         Boolean y = true;
+        Boolean menu = true;
 
         Objects.Init();
         if (System.getProperty("os.name").startsWith("Windows") == true) {

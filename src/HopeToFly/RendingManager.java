@@ -28,23 +28,25 @@ public class RendingManager extends JPanel {
     ArrayList<StarObject> Stars;
     ArrayList<FearObject> Fears;
     int background_y = -1760;
-    int tittle_y = -400;
+    int tittle_y = 100;
     int ground_y = 680;
     int foxstart_y = 620;
     Movement motion;
     int cursor_pos = 0;
+    int cursor_y_pos = 0;
     boolean right = true;
     Image FoxState;
+
+    boolean drawmenu = true;
+    boolean play = false;
 
     ClassLoader cl = getClass().getClassLoader();
     URL Background_imageURL = cl.getResource("HopeToFly/Assets/bg.jpg");
     Image Background = Toolkit.getDefaultToolkit().createImage(Background_imageURL); //Background -> y values: 0 - (-1760)
 
-    
     URL tittletextURL = cl.getResource("HopeToFly/Assets/hope_to_fly.png");
     Image tittletext = Toolkit.getDefaultToolkit().createImage(tittletextURL);
 
-    
     URL Ground_imageURL = cl.getResource("HopeToFly/Assets/maa.png");
     Image Ground = Toolkit.getDefaultToolkit().createImage(Ground_imageURL); //Background -> y values: 0 - (-1760)
 
@@ -72,6 +74,12 @@ public class RendingManager extends JPanel {
     URL FoxFL_URL = cl.getResource("HopeToFly/Assets/kettu_putoo_l.png");
     Image FoxFL = Toolkit.getDefaultToolkit().createImage(FoxFL_URL);
 
+    URL play1_URL = cl.getResource("HopeToFly/Assets/play.png");
+    Image play1 = Toolkit.getDefaultToolkit().createImage(play1_URL);
+
+    URL play2_URL = cl.getResource("HopeToFly/Assets/play_2.png");
+    Image play2 = Toolkit.getDefaultToolkit().createImage(play2_URL);
+
     public RendingManager(ObjectManager Object) {
         // Object manager passes it's objects for graphic rendering so that the classes may Inter-operate.
         this.Player = Object.Player;
@@ -82,15 +90,13 @@ public class RendingManager extends JPanel {
 
     }
 
-    @Override
-    protected void paintComponent(Graphics graphics) {
+    void paintIngame(Graphics graphics) { //Ingame rendering.
         graphics.drawImage(Background, 0, background_y, this);
         graphics.drawImage(tittletext, 0, tittle_y, this);
       //  graphics.drawImage(Ground, 0, ground_y, this);
 
         //Player object at Start of game.
-       // graphics.drawImage(SittingFox, 260, foxstart_y, this);
-
+        // graphics.drawImage(SittingFox, 260, foxstart_y, this);
         // Drawing Wishes.
         for (int i = 0; i < 8; i++) {
             Wishes.get(i).add_y(motion.getMotion());
@@ -126,8 +132,61 @@ public class RendingManager extends JPanel {
         //graphics.drawImage(FoxUpR, Player.getX(), 300, this);
     }
 
+    public void manageState() {
+        if (drawmenu == true) {
+            this.drawmenu = false;
+        } else {
+            this.drawmenu = true;
+        }
+
+    }
+
+    void paintMenu(Graphics graphics) {
+        graphics.drawImage(Background, 0, background_y, this);
+        graphics.drawImage(tittletext, 0, tittle_y, this);
+        graphics.drawImage(Ground, 0, ground_y, this);
+        graphics.drawImage(SittingFox, 280, foxstart_y, this);
+
+        // XXX propably can be done better... :P
+        if ((327 > cursor_pos) && (cursor_pos > 245) && (481 < cursor_y_pos) && (cursor_y_pos < 597)) {
+            play = true;
+        } else {
+            play = false;
+        }
+
+        if (play == true) {
+            graphics.drawImage(play2, 200, 460, this);
+        } else {
+            graphics.drawImage(play1, 200, 460, this);
+        }
+
+    }
+
+    @Override
+    protected void paintComponent(Graphics graphics) {
+
+        if (drawmenu == true) {
+            paintMenu(graphics);
+        } else {
+            paintIngame(graphics); //Ingame rendering.
+        }
+    }
+
     public void pass(int number) {
         this.cursor_pos = number;
+    }
+
+    public void passMenu(int number) {
+        this.cursor_y_pos = number;
+    }
+    
+    public void passClick(boolean state){
+        if(state == true){
+            System.out.println("Yay 1");
+            if(play == true){
+                System.out.println("Yay");
+            }
+        }
     }
 
 }
