@@ -16,6 +16,7 @@ public class Main {
         EventHandler Listener = new EventHandler(); // Responsible of the controls.
         RendingManager Render = new RendingManager(Objects); // Responsible of drawing all game assets.
         SoundManager Sound = new SoundManager(); // Responsible of the sounds.
+       // SoundManager does not work in ubuntu, if drivers are not updated.
         Container container = new Container(Render, Listener); // Eats all objects.
 
         container.run();
@@ -25,7 +26,7 @@ public class Main {
         Boolean y = true;
 
         Objects.Init();
-        Sound.Play();
+      //  Sound.Play(); // >> Does not work in Ubuntu, if drivers are not updated.
         for (;;) {
 
             /* Temporary! */
@@ -47,8 +48,8 @@ public class Main {
                     Render.background_y--;
                     x--;
                 }
-                Render.foxstart_y++;
-                Render.ground_y++;
+              //  Render.foxstart_y++;
+              //  Render.ground_y++;
             }
             //        Render.wish_y+=2;
         }
