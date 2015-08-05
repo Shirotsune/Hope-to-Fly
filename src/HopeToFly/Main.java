@@ -53,7 +53,7 @@ public class Main {
             if (Objects.Player.status() == true) {
                 if (x!=0) {
                     Render.background_y--;
-                    System.out.println(x);
+                   
                     x--;
                 }
                 //  Render.foxstart_y++;
