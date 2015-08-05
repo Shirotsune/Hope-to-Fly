@@ -18,7 +18,6 @@ public class ObjectManager {
     Movement pattern;
     int motion = 2;
     int jump = 0;
-    int extraboost = 0; //Blaaaaaack maaagichhhhhhhsssss
     int spawnheight = 720;
     int gravityframe = 0;
     int fall = 0;
@@ -63,7 +62,7 @@ public class ObjectManager {
                         jump = 15;
                    // }
                     if (ascending == true) {
-                       // extraboost = 2;
+                       
 
                         System.out.println(Player.getY());
                     }
@@ -81,15 +80,12 @@ public class ObjectManager {
 
         }
         if (gravityframe == 0) {
-            jump = pattern.jump(jump, ascending, extraboost);
+            jump = pattern.jump(jump, ascending);
 
-            if ((jump >= 17) && (extraboost == 0)) {
+            if (jump >= 17) {
                 ascending = false;
             }
 
-            if (extraboost != 0) {
-                extraboost--;
-            }
             if ((ascending == false) && jump == 0) {
                 fall += 2;
                 Player.fall(true);

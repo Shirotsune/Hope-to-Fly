@@ -84,7 +84,6 @@ public class RendingManager extends JPanel {
 
     @Override
     protected void paintComponent(Graphics graphics) {
-        // super.paintComponent(graphics);
         graphics.drawImage(Background, 0, background_y, this);
         graphics.drawImage(tittletext, 0, tittle_y, this);
       //  graphics.drawImage(Ground, 0, ground_y, this);
@@ -129,7 +128,6 @@ public class RendingManager extends JPanel {
 
     public void pass(int number) {
         this.cursor_pos = number;
-        // System.out.println(cursor_pos);
     }
 
 }

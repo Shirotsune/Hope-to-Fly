@@ -21,12 +21,12 @@ public class Movement {
         this.motion = number;
     }
    
-    public int jump(int number, boolean ascending, int boost){
+    public int jump(int number, boolean ascending){
         if (number == 0){
             return 0;
         }
         if(ascending){
-        for(int i = 0; i < 20-(3-boost); i++)
+        for(int i = 0; i < 17; i++)
         {
             if(number==i){
                 return number+1;
