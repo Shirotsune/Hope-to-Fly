@@ -132,6 +132,9 @@ public class RendingManager extends JPanel {
         //graphics.drawImage(FoxUpR, Player.getX(), 300, this);
     }
 
+    /***********************************************************/
+    // New game logic!
+    
     public void manageState() {
         if (drawmenu == true) {
             this.drawmenu = false;
@@ -149,6 +152,8 @@ public class RendingManager extends JPanel {
         return menuinitflag;
     }
 
+    /******************************************************/
+    
     void paintMenu(Graphics graphics) {
         graphics.drawImage(Background, 0, background_y, this);
         graphics.drawImage(tittletext, 0, tittle_y, this);
