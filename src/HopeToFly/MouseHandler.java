@@ -8,13 +8,13 @@ package HopeToFly;
 import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.JPanel;
+import javax.swing.*;
+import java.awt.*;
 
-public class MouseHandler extends JPanel implements MouseMotionListener {
+public class MouseHandler extends MouseAdapter {
 
     int x = 0;
     int y = 0;
-    
     boolean clicked = false;
 
     public MouseHandler() {
@@ -25,32 +25,33 @@ public class MouseHandler extends JPanel implements MouseMotionListener {
     public void mouseMoved(MouseEvent e) {
         this.x = e.getX();
         this.y = e.getY();
-    }
-    
+ }
+
+    @Override
     public void mousePressed(MouseEvent e) {
         this.clicked = true;
-        
+
     }
- 
-    public void mouseReleased(MouseEvent e){
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
         this.clicked = false;
     }
-    
+
     @Override
     public void mouseDragged(MouseEvent e) {
 
     }
-    
 
     public int getMouse() {
         return x;
     }
-    
-    public int getMouseMenu(){
+
+    public int getMouseMenu() {
         return y;
     }
-    
-    public boolean mouseClick(){
+
+    public boolean mouseClick() {
         return clicked;
     }
 }

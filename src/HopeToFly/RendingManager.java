@@ -38,6 +38,7 @@ public class RendingManager extends JPanel {
     Image FoxState;
 
     boolean drawmenu = true;
+    boolean menuinitflag = false;
     boolean play = false;
 
     ClassLoader cl = getClass().getClassLoader();
@@ -92,8 +93,8 @@ public class RendingManager extends JPanel {
 
     void paintIngame(Graphics graphics) { //Ingame rendering.
         graphics.drawImage(Background, 0, background_y, this);
-        graphics.drawImage(tittletext, 0, tittle_y, this);
-      //  graphics.drawImage(Ground, 0, ground_y, this);
+        // graphics.drawImage(tittletext, 0, tittle_y, this);
+        graphics.drawImage(Ground, 0, ground_y, this);
 
         //Player object at Start of game.
         // graphics.drawImage(SittingFox, 260, foxstart_y, this);
@@ -138,14 +139,25 @@ public class RendingManager extends JPanel {
         } else {
             this.drawmenu = true;
         }
-
     }
-
+    
+    public void newGame() {
+        this.drawmenu = true;
+        this.menuinitflag = true;
+    }
+    
+    public boolean initFlag() {
+        return menuinitflag;
+    }
+    
     void paintMenu(Graphics graphics) {
         graphics.drawImage(Background, 0, background_y, this);
         graphics.drawImage(tittletext, 0, tittle_y, this);
         graphics.drawImage(Ground, 0, ground_y, this);
         graphics.drawImage(SittingFox, 280, foxstart_y, this);
+        /* Resetting values */
+        ground_y = 680;
+        int background_y = -1760;
 
         // XXX propably can be done better... :P
         if ((327 > cursor_pos) && (cursor_pos > 245) && (481 < cursor_y_pos) && (cursor_y_pos < 597)) {
@@ -179,12 +191,12 @@ public class RendingManager extends JPanel {
     public void passMenu(int number) {
         this.cursor_y_pos = number;
     }
-    
-    public void passClick(boolean state){
-        if(state == true){
-            System.out.println("Yay 1");
-            if(play == true){
-                System.out.println("Yay");
+
+    public void passClick(boolean state) {
+        if (state == true) {
+
+            if ((play == true) && drawmenu == true) {
+                manageState();
             }
         }
     }

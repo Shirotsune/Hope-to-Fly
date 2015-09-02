@@ -41,26 +41,34 @@ public class Main {
                 Thread.currentThread().interrupt();
             }
             Objects.refresh();
+            if(Objects.getState() == 1){
+                Render.newGame();
+            }
+            
+            else if((Objects.getState() == 0) && Render.initFlag() == false) {
+               Render.newGame(); 
+            }
+            
+            
             container.refresh();
 
             if (x < 1750) {
-                
 
                 if (Objects.Player.status() == false) {
                     Render.background_y++;
+                    Render.ground_y++;
                     x++;
                 }
             }
             if (Objects.Player.status() == true) {
-                if (x!=0) {
+                if (x != 0) {
                     Render.background_y--;
-                   
+                    Render.ground_y--;
                     x--;
                 }
-                //  Render.foxstart_y++;
-                //  Render.ground_y++;
+
             }
-            //        Render.wish_y+=2;
+
         }
 
     }

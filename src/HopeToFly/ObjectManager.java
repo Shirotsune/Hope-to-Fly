@@ -26,6 +26,7 @@ public class ObjectManager {
     int score = 0; // Score 
 
     int newGame = 0; // TEMP TEST
+    int lostGame = 0;
 
     public ObjectManager() {
         this.Player = new PlayerObject();
@@ -44,13 +45,25 @@ public class ObjectManager {
     }
 
     public void Init() {
-
+        spawnheight = 0;
         for (int i = 0; i < 8; i++) {
             pattern.setMotion(motion);
             int temp = Wishes.get(i).ret_y();
             Wishes.get(i).respawn(spawnheight);
             spawnheight -= 120;
         }
+    }
+    public int getState(){
+        if(lostGame == 1){
+            lostGame = 0;
+            Init();
+            return 1;
+        }
+        
+        if(newGame == 0){
+            return 0;
+        }
+        return -1;
     }
 
     public void refresh() {
@@ -93,6 +106,15 @@ public class ObjectManager {
         }
         gravityframe++;
 
+        /* new game condition */
+        if (Wishes.get(0).ret_y() < -1000) {
+            newGame = 0;
+            lostGame = 1;
+            jump = 0;
+            score = 0;
+            System.out.println("Yes");
+        }
+
         if (newGame == 0) {
             motion = jump + 2;
         } else {
@@ -105,5 +127,6 @@ public class ObjectManager {
         if (gravityframe == 4) {
             gravityframe = 0;
         }
+
     }
 }
