@@ -107,7 +107,7 @@ public class ObjectManager {
         gravityframe++;
 
         /* new game condition */
-        if (Wishes.get(0).ret_y() < -1000) {
+        if (Wishes.get(0).ret_y() < -1600) {
             newGame = 0;
             lostGame = 1;
             jump = 0;

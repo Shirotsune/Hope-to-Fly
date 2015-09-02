@@ -56,7 +56,7 @@ public class Main {
 
                 if (Objects.Player.status() == false) {
                     Render.background_y++;
-                    Render.ground_y++;
+                    Render.ground_y++; 
                     x++;
                 }
             }

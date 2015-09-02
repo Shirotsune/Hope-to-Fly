@@ -30,7 +30,6 @@ public class RendingManager extends JPanel {
     int background_y = -1760;
     int tittle_y = 100;
     int ground_y = 680;
-    int foxstart_y = 620;
     Movement motion;
     int cursor_pos = 0;
     int cursor_y_pos = 0;
@@ -140,24 +139,21 @@ public class RendingManager extends JPanel {
             this.drawmenu = true;
         }
     }
-    
+
     public void newGame() {
         this.drawmenu = true;
         this.menuinitflag = true;
     }
-    
+
     public boolean initFlag() {
         return menuinitflag;
     }
-    
+
     void paintMenu(Graphics graphics) {
         graphics.drawImage(Background, 0, background_y, this);
         graphics.drawImage(tittletext, 0, tittle_y, this);
         graphics.drawImage(Ground, 0, ground_y, this);
-        graphics.drawImage(SittingFox, 280, foxstart_y, this);
-        /* Resetting values */
-        ground_y = 680;
-        int background_y = -1760;
+        graphics.drawImage(SittingFox, 280, (ground_y - 80), this);
 
         // XXX propably can be done better... :P
         if ((327 > cursor_pos) && (cursor_pos > 245) && (481 < cursor_y_pos) && (cursor_y_pos < 597)) {
