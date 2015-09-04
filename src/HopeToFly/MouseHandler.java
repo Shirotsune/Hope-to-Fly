@@ -5,11 +5,9 @@
  */
 package HopeToFly;
 
-import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.*;
-import java.awt.*;
+
 
 public class MouseHandler extends MouseAdapter {
 

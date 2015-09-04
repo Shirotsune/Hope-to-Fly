@@ -75,10 +75,6 @@ public class ObjectManager {
                     //  if (jump == 0) {
                     jump = 15;
                     // }
-                    if (ascending == true) {
-
-                        System.out.println(Player.getY());
-                    }
                     ascending = true;
                     score++;
                     System.out.println("Current score: " + score);
@@ -107,12 +103,11 @@ public class ObjectManager {
         gravityframe++;
 
         /* new game condition */
-        if (Wishes.get(0).ret_y() < -1600) {
+        if (Wishes.get(0).ret_y() < -1800) {
             newGame = 0;
             lostGame = 1;
             jump = 0;
             score = 0;
-            System.out.println("Yes");
         }
 
         if (newGame == 0) {

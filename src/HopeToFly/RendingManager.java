@@ -6,12 +6,6 @@
 package HopeToFly;
 
 /* Currently using this for rending, a different aspect might be chosen later on. */
-import java.awt.Container;
-import java.awt.Dimension;
-import javax.swing.JFrame;
-import javax.swing.WindowConstants;
-import java.awt.Graphics;
-import javax.swing.SwingUtilities;
 import java.awt.Image;
 import java.net.URL;
 import HopeToFly.Objects.*;
